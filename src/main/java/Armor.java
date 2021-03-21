@@ -10,7 +10,7 @@ public class Armor extends Equip {
         super(level);
     }
     
-    public void Flame(int flameNumber, int tier, String flameType) {
+    public void Flame(int flameNumber, int tier, Boolean isEternal) {
         if (flameNumber == 1) {StrIncrease(tier);
         } else if (flameNumber == 2) {DexIncrease(tier);
         } else if (flameNumber == 3) {IntIncrease(tier);
@@ -29,14 +29,10 @@ public class Armor extends Equip {
         } else if (flameNumber == 16) {AllStatIncrease(tier);
         } else if (flameNumber == 17) {SpeedIncrease(tier);
         } else if (flameNumber == 18) {JumpIncrease(tier);
-        } else {LevelReduction(tier);
-        }
+        } else {LevelReduction(tier);}
         
-        if (flameType.equals("red")) {
-            weight *= this.redFlameWeights.get(tier);
-        } else if (flameType.equals("eternal")) {
-            weight *= this.eternalFlameWeights.get(tier);
-        }
+        if (isEternal) {weight *= this.eternalFlameWeights.get(tier);
+        } else {weight *= this.redFlameWeights.get(tier);}
     }
     
     private void AttackIncrease(int tier) {this.attack += tier;}

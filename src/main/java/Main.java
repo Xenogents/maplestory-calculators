@@ -4,27 +4,27 @@ public class Main {
     public static void main(String[] args) {
         int level = 200;
         int attackPower = 255;
-        String flameType = "eternal";
-        String equipType = "weapon";
-        Double flameThreshold = 1200.0;
+        Boolean isEternal = true;
+        Boolean isWeapon = true;
+        Boolean isXenon = true;
+        Double flameThreshold = 1000.0;
         
-        Double attackWeighting = 4.0;
-        Double allStatWeighting = 8.5;
-        Double bossWeighting = 24.0;
+        Double attackWeighting = 5.0;
+        Double allStatWeighting = 22.5;
+        Double bossWeighting = 23.0;
         Double secondaryWeighting = 0.125;
         Double probability = 0.0;
         
         int minTier = 0;
         int maxTier = 0;
-        if (flameType.equals("red")) {
-            minTier = 3;
-            maxTier = 6;
-        } else if (flameType.equals("eternal")) {
+        if (isEternal) {
             minTier = 4;
             maxTier = 7;
+        } else {
+            minTier = 3;
+            maxTier = 6;
         }
         
-        int iterations = 0;
         for (int firstLine = 1; firstLine <= 16; firstLine++) {
             for (int secondLine = firstLine + 1; secondLine <= 17; secondLine++) {
                 for (int thirdLine = secondLine + 1; thirdLine <= 18; thirdLine++) {
@@ -33,28 +33,27 @@ public class Main {
                             for (int tier2 = minTier; tier2 <= maxTier; tier2++) {
                                 for (int tier3 = minTier; tier3 <= maxTier; tier3++) {
                                     for (int tier4 = minTier; tier4 <= maxTier; tier4++) {
-                                        iterations++;
-                                        if (equipType.equals("weapon")) {
+                                        if (isWeapon) {
                                             Weapon weapon = new Weapon(attackPower, level);
-                                            weapon.Flame(firstLine, tier1, flameType);
-                                            weapon.Flame(secondLine, tier2, flameType);
-                                            weapon.Flame(thirdLine, tier3, flameType);
-                                            weapon.Flame(fourthLine, tier4, flameType);
-                                            if (weapon.attack * attackWeighting + weapon.allStat * allStatWeighting
+                                            weapon.Flame(firstLine, tier1, isEternal);
+                                            weapon.Flame(secondLine, tier2, isEternal);
+                                            weapon.Flame(thirdLine, tier3, isEternal);
+                                            weapon.Flame(fourthLine, tier4, isEternal);
+                                            Double flameScore = weapon.attack * attackWeighting + weapon.allStat * allStatWeighting
                                                     + weapon.bossDmg * bossWeighting + weapon.dmg * bossWeighting
-                                                    + weapon.strength + weapon.dexterity * secondaryWeighting >= flameThreshold) {
-                                                probability += weapon.weight;
-                                            }
-                                        } else if (equipType.equals("armor")) {
+                                                    + weapon.strength + weapon.dexterity * secondaryWeighting;
+                                            if (isXenon) {flameScore += weapon.dexterity * (1 - secondaryWeighting) + weapon.luck;}
+                                            if (flameScore >= flameThreshold) {probability += weapon.weight;}
+                                        } else {
                                             Armor armor = new Armor(level);
-                                            armor.Flame(firstLine, tier1, flameType);
-                                            armor.Flame(secondLine, tier2, flameType);
-                                            armor.Flame(thirdLine, tier3, flameType);
-                                            armor.Flame(fourthLine, tier4, flameType);
-                                            if (armor.allStat * allStatWeighting + armor.attack * attackWeighting
-                                                    + armor.strength + armor.dexterity * secondaryWeighting >= flameThreshold) {
-                                                probability += armor.weight;
-                                            }
+                                            armor.Flame(firstLine, tier1, isEternal);
+                                            armor.Flame(secondLine, tier2, isEternal);
+                                            armor.Flame(thirdLine, tier3, isEternal);
+                                            armor.Flame(fourthLine, tier4, isEternal);
+                                            Double flameScore = armor.allStat * allStatWeighting + armor.attack * attackWeighting
+                                                    + armor.strength + armor.dexterity * secondaryWeighting;
+                                            if (isXenon) {flameScore += armor.dexterity * (1 - secondaryWeighting) + armor.luck;}
+                                            if (flameScore >= flameThreshold) {probability += armor.weight;}
                                         }
                                     }
                                 }
@@ -64,6 +63,9 @@ public class Main {
                 }
             }
         }
+        String flameType;
+        if (isEternal) {flameType = "eternal";
+        } else {flameType = "red";}
         System.out.printf("Expected number of " + flameType + " flames needed is: %f\n", (19*18*17*16/24) / probability);
     }
 }
