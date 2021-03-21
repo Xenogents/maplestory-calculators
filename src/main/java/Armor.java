@@ -1,24 +1,13 @@
 package src.main.java;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Weapon extends Equip {
-    int attackPower;
+public class Armor extends Equip {
     int attack = 0;
     int magAttack = 0;
-    int bossDmg = 0;
-    int dmg = 0;
-    Map<Integer, Double> attackPowerPercentages = new HashMap<>();
+    int speed = 0;
+    int jump = 0;
     
-    Weapon(int attackPower, int level) {
+    Armor(int level) {
         super(level);
-        this.attackPower = attackPower;
-        this.attackPowerPercentages.put(3, 0.03);
-        this.attackPowerPercentages.put(4, 0.044);
-        this.attackPowerPercentages.put(5, 0.0605);
-        this.attackPowerPercentages.put(6, 0.07986);
-        this.attackPowerPercentages.put(7, 0.102487);
     }
     
     public void Flame(int flameNumber, int tier, String flameType) {
@@ -38,8 +27,8 @@ public class Weapon extends Equip {
         } else if (flameNumber == 14) {HPIncrease(tier);
         } else if (flameNumber == 15) {MPIncrease(tier);
         } else if (flameNumber == 16) {AllStatIncrease(tier);
-        } else if (flameNumber == 17) {BossDmgIncrease(tier);
-        } else if (flameNumber == 18) {DmgIncrease(tier);
+        } else if (flameNumber == 17) {SpeedIncrease(tier);
+        } else if (flameNumber == 18) {JumpIncrease(tier);
         } else {LevelReduction(tier);
         }
         
@@ -50,8 +39,8 @@ public class Weapon extends Equip {
         }
     }
     
-    private void AttackIncrease(int tier) {this.attack += this.attackPower * this.multiplier * (this.attackPowerPercentages.get(tier)) + 1;}
-    private void MagAttackIncrease(int tier) {this.magAttack += this.attackPower * this.multiplier * (this.attackPowerPercentages.get(tier)) + 1;}
-    private void BossDmgIncrease(int tier) {this.bossDmg += tier * 2;}
-    private void DmgIncrease(int tier) {this.dmg += tier;}
+    private void AttackIncrease(int tier) {this.attack += tier;}
+    private void MagAttackIncrease(int tier) {this.magAttack += tier;}
+    private void SpeedIncrease(int tier) {this.speed += tier;}
+    private void JumpIncrease(int tier) {this.jump += tier;}
 }
