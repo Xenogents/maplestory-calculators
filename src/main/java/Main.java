@@ -2,12 +2,12 @@ package src.main.java;
 
 public class Main {
     public static void main(String[] args) {
-        int level = 200;
+        int level = 150;
         int attackPower = 255;
         Boolean isEternal = true;
-        Boolean isWeapon = true;
+        Boolean isWeapon = false;
         Boolean isXenon = true;
-        Double flameThreshold = 1000.0;
+        Double flameThreshold = 225.0;
         
         Double attackWeighting = 5.0;
         Double allStatWeighting = 22.5;
