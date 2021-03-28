@@ -1,0 +1,47 @@
+<html>
+<head>
+  <% for(var i=0; i < htmlWebpackPlugin.files.js.length; i++) {%>
+    <script src="<%= htmlWebpackPlugin.files.js[i] %>" async></script>
+  <% } %>
+  <meta charset="utf-8">
+  <style>
+    input {
+      margin-bottom: 5px;
+    }
+    input[type=number] {
+      width: 70px;
+    }
+    label {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body id="body">
+  <h1 id="title">Flame Calculator</h1>
+  <div><input type="checkbox" id="isEternal"></input>
+    <label for="isEternal">Are you using eternals?</label></div>
+  <div><input type="checkbox" id="isXenon"></input>
+    <label for="isXenon">Are you a Xenon?</label></div>
+  <div><input type="checkbox" id="isWeapon"></input>
+    <label for="isWeapon">Is this a weapon?</label>
+  <div><input type="number" id="level"></input>
+    <label for="level">Item level</label></div>
+  <div><input type="number" id="flameThreshold"></input>
+    <label for="flameThreshold">Flame threshold</label></div>
+  <div><input type="number" id="attackWeight"></input>
+    <label for="attackWeight">Attack Weight</label></div>
+  <div><input type="number" id="allStatWeight"></input>
+    <label for="allStatWeight">All stat Weight</label></div>
+  <div><input type="number" id="secondaryWeight"></input>
+    <label for="secondaryWeight">Secondary Stat Weight</label></div>
+  <div><input type="number" id="bossWeight"></input>
+    <label for="bossWeight">Boss Weight</label></div>
+  <div><input type="number" id="attackPower"></input>
+    <label for="attackPower">Base weapon attack</label></div>
+  <button id="calculate">Calculate</button>
+    <label for="calculate"></label>
+  <div id="output">
+    <span id="output"></span>
+  </div>
+</body>
+</html>

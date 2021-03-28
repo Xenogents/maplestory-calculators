@@ -1,3 +1,2 @@
-*.class
-.classpath
-.project
+node_modules
+dist
