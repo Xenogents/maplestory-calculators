@@ -95,9 +95,7 @@ function calculate() {
             }
         }
     }
-    let flameType;
-    if (isEternal) {flameType = "eternal";
-    } else {flameType = "red";}
+    let flameType = isEternal ? "eternal" : "red";
     let output = "Expected number of " + flameType + " flames needed is: " + ((19*18*17*16/24) / probability).toFixed(2);
     document.getElementById("output").innerHTML = output;
 }
