@@ -9,7 +9,7 @@ class Armor extends Equip {
         this.jump = 0;
     }
     
-    Flame(flameNumber, tier, isEternal) {
+    Flame(flameNumber, tier, isEternal, isFlameAdvantaged) {
         if (flameNumber == 1) {this.StrIncrease(tier);
         } else if (flameNumber == 2) {this.DexIncrease(tier);
         } else if (flameNumber == 3) {this.IntIncrease(tier);
@@ -30,8 +30,15 @@ class Armor extends Equip {
         } else if (flameNumber == 18) {this.JumpIncrease(tier);
         } else {this.LevelReduction(tier);}
 
-        if (isEternal) {this.weight *= this.eternalFlameWeights[tier];
-        } else {this.weight *= this.redFlameWeights[tier];}
+        if (isEternal && isFlameAdvantaged) {
+            this.weight *= this.advantagedEternalFlameWeights[tier];
+        } else if (isEternal && !isFlameAdvantaged) {
+            this.weight *= this.eternalFlameWeights[tier];
+        } else if (!isEternal && isFlameAdvantaged) {
+            this.weight *= this.advantagedRedFlameWeights[tier];
+        } else {
+            this.weight *= this.redFlameWeights[tier];
+        }
     }
     
     AttackIncrease(tier) {this.attack += tier;}

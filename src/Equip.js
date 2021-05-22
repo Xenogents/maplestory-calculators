@@ -13,16 +13,26 @@ export class Equip {
         this.statMultiplier = 1 + Math.floor(level / 20);
         this.multiplier = 1 + Math.floor(level / 40);
 
+        this.advantagedRedFlameWeights = new Map();
+        this.advantagedEternalFlameWeights = new Map();
         this.redFlameWeights = new Map();
         this.eternalFlameWeights = new Map();
-        this.redFlameWeights[3] = 0.2;
-        this.redFlameWeights[4] = 0.3;
-        this.redFlameWeights[5] = 0.36;
-        this.redFlameWeights[6] = 0.14;
-        this.eternalFlameWeights[4] = 0.29;
-        this.eternalFlameWeights[5] = 0.45;
-        this.eternalFlameWeights[6] = 0.25;
-        this.eternalFlameWeights[7] = 0.01;
+        this.advantagedRedFlameWeights[3] = 0.2;
+        this.advantagedRedFlameWeights[4] = 0.3;
+        this.advantagedRedFlameWeights[5] = 0.36;
+        this.advantagedRedFlameWeights[6] = 0.14;
+        this.advantagedEternalFlameWeights[4] = 0.29;
+        this.advantagedEternalFlameWeights[5] = 0.45;
+        this.advantagedEternalFlameWeights[6] = 0.25;
+        this.advantagedEternalFlameWeights[7] = 0.01;
+        this.redFlameWeights[1] = 0.2;
+        this.redFlameWeights[2] = 0.3;
+        this.redFlameWeights[3] = 0.36;
+        this.redFlameWeights[4] = 0.14;
+        this.eternalFlameWeights[2] = 0.29;
+        this.eternalFlameWeights[3] = 0.45;
+        this.eternalFlameWeights[4] = 0.25;
+        this.eternalFlameWeights[5] = 0.01;
     }
     
     StrIncrease(tier) {this.strength += tier * this.statMultiplier;}

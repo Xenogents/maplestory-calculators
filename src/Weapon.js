@@ -17,7 +17,7 @@ class Weapon extends Equip {
         this.attackPowerPercentages[7] = 0.102487;
     }
     
-    Flame(flameNumber, tier, isEternal) {
+    Flame(flameNumber, tier, isEternal, isFlameAdvantaged) {
         if (flameNumber == 1) {this.StrIncrease(tier);
         } else if (flameNumber == 2) {this.DexIncrease(tier);
         } else if (flameNumber == 3) {this.IntIncrease(tier);
@@ -38,8 +38,15 @@ class Weapon extends Equip {
         } else if (flameNumber == 18) {this.DmgIncrease(tier);
         } else {this.LevelReduction(tier);}
         
-        if (isEternal) {this.weight *= this.eternalFlameWeights[tier];
-        } else {this.weight *= this.redFlameWeights[tier];}
+        if (isEternal && isFlameAdvantaged) {
+            this.weight *= this.advantagedEternalFlameWeights[tier];
+        } else if (isEternal && !isFlameAdvantaged) {
+            this.weight *= this.eternalFlameWeights[tier];
+        } else if (!isEternal && isFlameAdvantaged) {
+            this.weight *= this.advantagedRedFlameWeights[tier];
+        } else {
+            this.weight *= this.redFlameWeights[tier];
+        }
     }
     
     AttackIncrease(tier) {this.attack += this.attackPower * this.multiplier * (this.attackPowerPercentages[tier]) + 1;}
