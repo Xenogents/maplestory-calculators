@@ -8,7 +8,7 @@ module.exports = {
         open: true,
         watchContentBase: true
     },
-    entry: './src/Main.js',
+    entry: './Main.js',
     output: {
         filename: 'bundle.js'
     },
@@ -34,7 +34,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'index.html',
             inject: false,
         }),
     ]
