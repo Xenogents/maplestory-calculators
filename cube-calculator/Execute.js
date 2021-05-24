@@ -84,11 +84,11 @@ for (let secondPrime of [true, false]) {
             secondLineOptions.forEach(secondLine => {
                 thirdLineOptions.forEach(thirdLine => {
                     let equip = new Equip()
-                    equip.Cube(firstLine, firstLineWeight, firstLinePrimeRate)
-                    equip.Cube(secondLine, secondLineWeight, secondLinePrimeRate)
-                    equip.Cube(thirdLine, thirdLineWeight, thirdLinePrimeRate)
+                    equip.cube(firstLine, firstLineWeight, firstLinePrimeRate)
+                    equip.cube(secondLine, secondLineWeight, secondLinePrimeRate)
+                    equip.cube(thirdLine, thirdLineWeight, thirdLinePrimeRate)
                     if (calculateScore(equip) >= scoreThreshold) {
-                        probability += equip.weight
+                        probability += equip.probability
                     }
                 })
             })

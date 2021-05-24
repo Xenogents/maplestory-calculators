@@ -2,7 +2,7 @@ import { CubeData } from './CubeData.js'
 
 class Equip {
     constructor() {
-        this.weight = 1
+        this.probability = 1
         this.attackPercent = 0
         this.bossDamage = 0
         this.ignoreDefense = 0
@@ -30,43 +30,43 @@ class Equip {
         this.drop = 0
     }
 
-    Cube(line, totalWeight, primeRate) {
+    cube(line, totalWeight, primeRate) {
         if (line.line == CubeData.lines.PRIMEBOSSDAMAGE
                     || line.line == CubeData.lines.HALFPRIMEBOSSDAMAGE
                     || line.line == CubeData.lines.NONPRIMEBOSSDAMAGE) {
             this.bossDamage += line.value
-            this.weight *= primeRate * line.weight / totalWeight
+            this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.PRIMEIGNOREDEFENSE
                     || line.line == CubeData.lines.NONPRIMEIGNOREDEFENSE) {
             this.ignoreDefense += line.value * (100 - this.ignoreDefense) / 100
-            this.weight *= primeRate * line.weight / totalWeight
+            this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.PRIMECOOLDOWNREDUCTION
                     || line.line == CubeData.lines.NONPRIMECOOLDOWNREDUCTION) {
             this.cooldownReduction += line.value
-            this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.ATTACKPERCENT) {this.attackPercent += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.CRITDMG) {this.critDmg += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.DAMAGE) {this.damage += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.CRITRATE) {this.critRate += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.ATTACKPER10) {this.attackPer10 += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.ATTACK) {this.attack += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.ALLSTATPERCENT) {this.allstat += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.PRIMARYSTATPERCENT) {this.primaryStatPercent += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SECONDARYSTATPERCENT) {this.secondaryStatPercent += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.TERTIARYSTATPERCENT) {this.tertiaryStatPercent += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.PRIMARYSTAT) {this.primaryStat += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SECONDARYSTAT) {this.secondaryStat += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.TERTIARYSTAT) {this.tertiaryStat += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.PRIMARYSTATPER10) {this.primaryStatPer10 += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SECONDARYSTATPER10) {this.secondaryStatPer10 += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.TERTIARYSTATPER10) {this.tertiaryStatPer10 += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SHARPEYES) {this.sharpEyes == true; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SPEEDINFUSION) {this.speedInfusion == true; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.HP) {this.hp += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.MP) {this.mp += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.MESOS) {this.mesos += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.DROP) {this.drop += line.value; this.weight *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.FILLER) {this.weight *= primeRate * line.weight / totalWeight
+            this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.ATTACKPERCENT) {this.attackPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.CRITDMG) {this.critDmg += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.DAMAGE) {this.damage += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.CRITRATE) {this.critRate += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.ATTACKPER10) {this.attackPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.ATTACK) {this.attack += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.ALLSTATPERCENT) {this.allstat += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.PRIMARYSTATPERCENT) {this.primaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SECONDARYSTATPERCENT) {this.secondaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.TERTIARYSTATPERCENT) {this.tertiaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.PRIMARYSTAT) {this.primaryStat += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SECONDARYSTAT) {this.secondaryStat += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.TERTIARYSTAT) {this.tertiaryStat += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.PRIMARYSTATPER10) {this.primaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SECONDARYSTATPER10) {this.secondaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.TERTIARYSTATPER10) {this.tertiaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SHARPEYES) {this.sharpEyes == true; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SPEEDINFUSION) {this.speedInfusion == true; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.HP) {this.hp += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.MP) {this.mp += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.MESOS) {this.mesos += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.DROP) {this.drop += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.FILLER) {this.probability *= primeRate * line.weight / totalWeight
         }
     }
 }
