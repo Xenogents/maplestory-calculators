@@ -1,44 +1,57 @@
 import { CubeData } from './CubeData.js'
+import { copyMap } from './CubeData.js'
 import { Equip } from './Equip.js';
 
-let tier4 = true
-let cubeType = CubeData.cubeType.BLACK
+let tier4 = false
+let cubeType = CubeData.cubeType.GREEN
 let xenon = false
 let mpot = cubeType !== CubeData.cubeType.GREEN ? true : false
-let equipType = CubeData.equipType.badge
-let equipData = CubeData.armor
+let equipType = CubeData.equipType.weapon
+let equipData = CubeData.weapon
 let level = 275
-let scoreThreshold = 33
+let scoreThreshold = 22
 
+// all
+let percentStatPercentSecondary = 0
+
+// weapons mpot and bpot
 let attackPercentBossRatio = 4
 let attackPercentIedRatio = 0
-let statAttackRatio = 0
-let statSecondaryStatRatio = 0
-let statPercentStatRatio = 0
-let statPercentAllStatRatio = 0
-let percentStatCritDmgRatio = 30
-let percentStatCdrRatio = 0
-let percentStatCritRateRatio = 0
 let percentStatPercentAttackRatio = 0
+let percentStatCritRateRatio = 0
+
+// glove mpot and armor bpot
+let percentStatCritDmgRatio = 4
+
+// glove mpot
 let percentStatDseRatio = 0
 let percentStatDsiRatio = 0
+
+// non-weapon bpot
+let statAttackRatio = 2.5
+let statSecondaryStatRatio = 0
+let statPercentStatRatio = 5
+
+// hat
+let percentStatCdrRatio = 0
+
+// miscellaneous
 let percentStatHpRatio = 0
 let percentStatMpRatio = 0
 let percentStatMesosRatio = 0
 let percentStatDropRatio = 0
 
-let probability = 0
+let probabilityToEqual = 0
+let probabilityToBeat = 0
+let expectedGain = 0
 
 for (let secondPrime of [true, false]) {
     for (let thirdPrime of [true, false]) {
         let firstLineOptions
-        let firstLineWeight = 0
         let firstLinePrimeRate = 1
         let secondLineOptions
-        let secondLineWeight = 0
         let secondLinePrimeRate
         let thirdLineOptions
-        let thirdLineWeight = 0
         let thirdLinePrimeRate
 
         if (mpot && tier4) {
@@ -76,19 +89,32 @@ for (let secondPrime of [true, false]) {
             if (!thirdPrime) { thirdLinePrimeRate = 1 - CubeData.primeRates.bpotCube.thirdLine }
         }
 
+        let firstLineWeight = 0
         firstLineOptions.forEach(line => { firstLineWeight += line.weight })
-        secondLineOptions.forEach(line => { secondLineWeight += line.weight })
-        thirdLineOptions.forEach(line => { thirdLineWeight += line.weight })
 
         firstLineOptions.forEach(firstLine => {
-            secondLineOptions.forEach(secondLine => {
-                thirdLineOptions.forEach(thirdLine => {
+            let adjustedSecondLineOptions = adjustLineOptions1Line(firstLine, secondLineOptions)
+            let adjustedThirdLineOptions = adjustLineOptions1Line(firstLine, thirdLineOptions)
+            let secondLineWeight = 0
+            adjustedSecondLineOptions.forEach(line => { secondLineWeight += line.weight })
+
+            adjustedSecondLineOptions.forEach(secondLine => {
+                let doubleAdjustedThirdLineOptions = adjustLineOptions2Lines(firstLine, secondLine, adjustedThirdLineOptions)
+                let thirdLineWeight = 0
+                doubleAdjustedThirdLineOptions.forEach(line => { thirdLineWeight += line.weight })
+
+                doubleAdjustedThirdLineOptions.forEach(thirdLine => {
                     let equip = new Equip()
                     equip.cube(firstLine, firstLineWeight, firstLinePrimeRate)
                     equip.cube(secondLine, secondLineWeight, secondLinePrimeRate)
                     equip.cube(thirdLine, thirdLineWeight, thirdLinePrimeRate)
-                    if (calculateScore(equip) >= scoreThreshold) {
-                        probability += equip.probability
+                    let cubeScore = calculateScore(equip)
+                    if (cubeScore >= scoreThreshold) {
+                        probabilityToEqual += equip.probability
+                        if (cubeScore > scoreThreshold) {
+                            probabilityToBeat += equip.probability
+                            expectedGain += equip.probability * (cubeScore - scoreThreshold);
+                        }
                     }
                 })
             })
@@ -96,7 +122,9 @@ for (let secondPrime of [true, false]) {
     }
 }
 
-console.log(1 / probability)
+console.log(1 / probabilityToEqual)
+console.log(1 / probabilityToBeat)
+console.log(expectedGain / probabilityToBeat)
 
 function calculateScore(equip) {
     let potentialScore = 0
@@ -107,19 +135,18 @@ function calculateScore(equip) {
         potentialScore += percentStatCritRateRatio === 0 ? 0 : equip.critRate * percentStatPercentAttackRatio / percentStatCritRateRatio
         potentialScore += statPercentStatRatio * percentStatPercentAttackRatio === 0 ? 
                         0 : equip.attackPer10 * Math.floor(level / 10) * statAttackRatio / (statPercentStatRatio * percentStatPercentAttackRatio)
-        potentialScore += statPercentStatRatio * percentStatPercentAttackRatio === 0 ?
-                        0 : equip.allStat * statPercentAllStatRatio / (statPercentStatRatio * percentStatPercentAttackRatio)
+        potentialScore += percentStatPercentAttackRatio === 0 ? 0 : equip.allStat * (1 + percentStatPercentSecondary) / percentStatPercentAttackRatio
     } else {
         potentialScore += equip.critDmg * percentStatCritDmgRatio
         potentialScore += equip.cooldownReduction * percentStatCdrRatio
         potentialScore += statPercentStatRatio === 0 ? 0 : equip.attack * statAttackRatio / statPercentStatRatio
-        potentialScore += statPercentStatRatio === 0 ? 0 : equip.allStat * statPercentAllStatRatio / statPercentStatRatio
+        potentialScore += equip.allStat * (1 + percentStatPercentSecondary)
         potentialScore += equip.primaryStatPercent
         potentialScore += equip.secondaryStatPercent * statSecondaryStatRatio
         potentialScore += statPercentStatRatio === 0 ? 0 : equip.primaryStat / statPercentStatRatio
         potentialScore += statPercentStatRatio === 0 ? 0 : equip.secondaryStat * statSecondaryStatRatio / statPercentStatRatio
-        potentialScore += statPercentStatRatio === 0 ? 0 : equip.primaryStatper10 * Math.floor(level / 10) / statPercentStatRatio
-        potentialScore += statPercentStatRatio === 0 ? 0 : equip.secondaryStatper10 * Math.floor(level / 10) * statSecondaryStatRatio / statPercentStatRatio
+        potentialScore += statPercentStatRatio === 0 ? 0 : equip.primaryStatPer10 * Math.floor(level / 10) / statPercentStatRatio
+        potentialScore += statPercentStatRatio === 0 ? 0 : equip.secondaryStatPer10 * Math.floor(level / 10) * statSecondaryStatRatio / statPercentStatRatio
         potentialScore += equip.sharpEyes ? percentStatDseRatio : 0
         potentialScore += equip.speedInfusion ? percentStatDsiRatio : 0
         potentialScore += percentStatHpRatio === 0 ? 0 : equip.hp / percentStatHpRatio
@@ -128,4 +155,63 @@ function calculateScore(equip) {
         potentialScore += percentStatDropRatio === 0 ? 0 : equip.drop / percentStatDropRatio
     }
     return potentialScore
+}
+
+function adjustLineOptions1Line(firstLine, lineOptions) {
+    let adjustedLineOptions = copyMap(lineOptions)
+    if (firstLine.line === CubeData.lines.ALLSKILLEVELS && adjustedLineOptions.has(CubeData.lines.ALLSKILLEVELS)) {
+        adjustedLineOptions.delete(CubeData.lines.ALLSKILLEVELS)
+    } else if (firstLine.line === CubeData.lines.INVINCIBILITY && adjustedLineOptions.has(CubeData.lines.INVINCIBILITY)) {
+        adjustedLineOptions.delete(CubeData.lines.INVINCIBILITY)
+    }
+    return adjustedLineOptions
+}
+
+function adjustLineOptions2Lines(firstLine, secondLine, lineOptions) {
+    let adjustedLineOptions = copyMap(lineOptions)
+    if ((firstLine.line === CubeData.lines.PRIMEBOSSDAMAGE
+                || firstLine.line === CubeData.lines.HALFPRIMEBOSSDAMAGE
+                || firstLine.line === CubeData.lines.NONPRIMEBOSSDAMAGE)
+            && (secondLine.line === CubeData.lines.PRIMEBOSSDAMAGE
+                || secondLine.line === CubeData.lines.HALFPRIMEBOSSDAMAGE
+                || secondLine.line === CubeData.lines.NONPRIMEBOSSDAMAGE)) {
+        if (adjustedLineOptions.has(CubeData.lines.PRIMEBOSSDAMAGE)) {
+            adjustedLineOptions.delete(CubeData.lines.PRIMEBOSSDAMAGE)
+        }
+        if (adjustedLineOptions.has(CubeData.lines.HALFPRIMEBOSSDAMAGE)) {
+            adjustedLineOptions.delete(CubeData.lines.HALFPRIMEBOSSDAMAGE)
+        }
+        if (adjustedLineOptions.has(CubeData.lines.NONPRIMEBOSSDAMAGE)) {
+            adjustedLineOptions.delete(CubeData.lines.NONPRIMEBOSSDAMAGE)
+        }
+    }
+
+    if ((firstLine.line === CubeData.lines.PRIMEIGNOREDEFENSE || firstLine.line === CubeData.lines.NONPRIMEIGNOREDEFENSE)
+            && (secondLine.line === CubeData.lines.PRIMEIGNOREDEFENSE || secondLine.line === CubeData.lines.NONPRIMEIGNOREDEFENSE)) {
+        if (adjustedLineOptions.has(CubeData.lines.PRIMEIGNOREDEFENSE)) {
+            adjustedLineOptions.delete(CubeData.lines.PRIMEIGNOREDEFENSE)
+        }
+        if (adjustedLineOptions.has(CubeData.lines.NONPRIMEIGNOREDEFENSE)) {
+            adjustedLineOptions.delete(CubeData.lines.NONPRIMEIGNOREDEFENSE)
+        }
+    }
+
+    if (firstLine.line === CubeData.lines.PERCENTINVINCIBILITY
+            && secondLine.line === CubeData.lines.PERCENTINVINCIBILITY
+            && adjustedLineOptions.has(CubeData.lines.PERCENTINVINCIBILITY)) {
+        adjustedLineOptions.delete(CubeData.lines.PERCENTINVINCIBILITY)
+    }
+
+    if (firstLine.line === CubeData.lines.IGNOREDAMAGE
+            && secondLine.line === CubeData.lines.IGNOREDAMAGE
+            && adjustedLineOptions.has(CubeData.lines.IGNOREDAMAGE)) {
+        adjustedLineOptions.delete(CubeData.lines.IGNOREDAMAGE)
+    }
+
+    if (firstLine.line === CubeData.lines.DROP
+            && secondLine.line === CubeData.lines.DROP
+            && adjustedLineOptions.has(CubeData.lines.DROP)) {
+        adjustedLineOptions.delete(CubeData.lines.DROP)
+    }
+    return adjustedLineOptions
 }

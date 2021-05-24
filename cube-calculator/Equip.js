@@ -50,7 +50,7 @@ class Equip {
         } else if (line.line == CubeData.lines.CRITRATE) {this.critRate += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.ATTACKPER10) {this.attackPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.ATTACK) {this.attack += line.value; this.probability *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.ALLSTATPERCENT) {this.allstat += line.value; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.ALLSTATPERCENT) {this.allStat += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.PRIMARYSTATPERCENT) {this.primaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.SECONDARYSTATPERCENT) {this.secondaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.TERTIARYSTATPERCENT) {this.tertiaryStatPercent += line.value; this.probability *= primeRate * line.weight / totalWeight
@@ -66,7 +66,7 @@ class Equip {
         } else if (line.line == CubeData.lines.MP) {this.mp += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.MESOS) {this.mesos += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.DROP) {this.drop += line.value; this.probability *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.FILLER) {this.probability *= primeRate * line.weight / totalWeight
+        } else {this.probability *= primeRate * line.weight / totalWeight
         }
     }
 }
