@@ -49,8 +49,8 @@ class Weapon extends Equip {
         }
     }
     
-    AttackIncrease(tier) {this.attack += this.attackPower * this.multiplier * (this.attackPowerPercentages[tier]) + 1;}
-    MagAttackIncrease(tier) {this.magAttack += this.attackPower * this.multiplier * (this.attackPowerPercentages[tier]) + 1;}
+    AttackIncrease(tier) {this.attack += Math.floor(this.attackPower * this.multiplier * (this.attackPowerPercentages[tier])) + 1;}
+    MagAttackIncrease(tier) {this.magAttack += Math.floor(this.attackPower * this.multiplier * (this.attackPowerPercentages[tier])) + 1;}
     BossDmgIncrease(tier) {this.bossDmg += tier * 2;}
     DmgIncrease(tier) {this.dmg += tier;}
 }
