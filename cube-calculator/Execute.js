@@ -94,7 +94,8 @@ function calculate() {
     updateEquipData()
     let firstResult = []
     let secondResult = []
-    let firstCubeType;
+    let firstCubeType
+    let scoreType
 
     if (isBpot) {
         firstResult = calculateProbability(CubeData.cubeType.GREEN)
@@ -104,10 +105,16 @@ function calculate() {
         secondResult = calculateProbability(CubeData.cubeType.BLACK)
         firstCubeType = CubeData.cubeType.RED
     }
+
+    if (equipType === CubeData.equipType.weapon || equipType === CubeData.equipType.secondary || equipType === CubeData.equipType.emblem) {
+        scoreType = "%Att"
+    } else {
+        scoreType = "%Stat"
+    }
     
     let expectedCubesToEqual = (1 / firstResult[0]).toFixed(2) + " " + firstCubeType + " cubes to equal or beat current"
     let expectedCubesToBeat = (1 / firstResult[1]).toFixed(2) + " " + firstCubeType + " cubes to beat current"
-    let expectedCubeScoreGain = (firstResult[2] / firstResult[1]).toFixed(2) + " expected cube score increase after beating current"
+    let expectedCubeScoreGain = (firstResult[2] / firstResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
     document.getElementById("expectedFirstCubesToEqual").innerHTML = expectedCubesToEqual;
     document.getElementById("expectedFirstCubesToBeat").innerHTML = expectedCubesToBeat;
     document.getElementById("expectedFirstCubeGain").innerHTML = expectedCubeScoreGain;
@@ -118,7 +125,7 @@ function calculate() {
     if (!isBpot) {
         expectedCubesToEqual = (1 / secondResult[0]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to equal or beat current"
         expectedCubesToBeat = (1 / secondResult[1]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to beat current"
-        expectedCubeScoreGain = (secondResult[2] / firstResult[1]).toFixed(2) + " expected cube score increase after beating current"
+        expectedCubeScoreGain = (secondResult[2] / firstResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
         document.getElementById("expectedSecondCubesToEqual").innerHTML = expectedCubesToEqual;
         document.getElementById("expectedSecondCubesToBeat").innerHTML = expectedCubesToBeat;
         document.getElementById("expectedSecondCubeGain").innerHTML = expectedCubeScoreGain;
