@@ -60,8 +60,8 @@ class Equip {
         } else if (line.line == CubeData.lines.PRIMARYSTATPER10) {this.primaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.SECONDARYSTATPER10) {this.secondaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.TERTIARYSTATPER10) {this.tertiaryStatPer10 += line.value; this.probability *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SHARPEYES) {this.sharpEyes == true; this.probability *= primeRate * line.weight / totalWeight
-        } else if (line.line == CubeData.lines.SPEEDINFUSION) {this.speedInfusion == true; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SHARPEYES) {this.sharpEyes = true; this.probability *= primeRate * line.weight / totalWeight
+        } else if (line.line == CubeData.lines.SPEEDINFUSION) {this.speedInfusion = true; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.HP) {this.hp += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.MP) {this.mp += line.value; this.probability *= primeRate * line.weight / totalWeight
         } else if (line.line == CubeData.lines.MESOS) {this.mesos += line.value; this.probability *= primeRate * line.weight / totalWeight
