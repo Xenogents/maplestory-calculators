@@ -1,4 +1,9 @@
+html {
+    font-size: 100%;
+}
+
 body {
+    font-size: 1em;
     display: flex;
 }
 
@@ -11,11 +16,13 @@ body {
 }
 
 h1 {
+    font-size: 2em;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 h3 {
+    font-size: 1.5em;
     margin-top: 0px;
     margin-bottom: 0px;
 }
