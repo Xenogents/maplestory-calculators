@@ -1,4 +1,30 @@
+body {
+    display: flex;
+}
+
+#flames {
+    margin-right: 50px;
+}
+
+#expectedFirstCubeGain {
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 input {
+    margin-bottom: 5px;
+}
+
+select {
     margin-bottom: 5px;
 }
 

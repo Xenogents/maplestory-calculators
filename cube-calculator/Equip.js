@@ -31,7 +31,7 @@ class Equip {
     }
 
     cube(line, totalWeight, primeRate) {
-        if (line.line == CubeData.lines.PRIMEBOSSDAMAGE
+        if (line.line == CubeData.lines.PRIMEBOSSDAMAGEz
                     || line.line == CubeData.lines.HALFPRIMEBOSSDAMAGE
                     || line.line == CubeData.lines.NONPRIMEBOSSDAMAGE) {
             this.bossDamage += line.value

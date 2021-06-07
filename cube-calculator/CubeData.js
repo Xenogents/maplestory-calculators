@@ -1,14 +1,13 @@
-import './Line.js'
 import { Line } from './Line.js'
 
 const Lines = {
-	ATTACKPERCENT: "att%",
-	PRIMEBOSSDAMAGE: "primeboss%",
+    ATTACKPERCENT: "att%",
+    PRIMEBOSSDAMAGE: "primeboss%",
     HALFPRIMEBOSSDAMAGE: "halfprimeboss%",
     NONPRIMEBOSSDAMAGE: "nonprimeboss%",
-	PRIMEIGNOREDEFENSE: "primeied%",
+    PRIMEIGNOREDEFENSE: "primeied%",
     NONPRIMEIGNOREDEFENSE: "nonprimeied%",
-	CRITDMG: "critdmg",
+    CRITDMG: "critdmg",
     PRIMECOOLDOWNREDUCTION: "primecdr",
     NONPRIMECOOLDOWNREDUCTION: "nonprimecdr",
     DAMAGE: "dmg",
@@ -31,7 +30,7 @@ const Lines = {
     MP: "mp",
     MESOS: "mesos",
     DROP: "drop",
-    ALLSKILLEVELS: "allskilllevels",
+    ALLSKILLLEVELS: "allskilllevels",
     INVINCIBILITY: "invincibility",
     PERCENTINVINCIBILITY: "percentinvincibility",
     IGNOREDAMAGE: "ignoredamage",
@@ -111,7 +110,9 @@ emblemBpotLegTier4.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER
 emblemBpotLegTier4.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 2, 2))
 emblemBpotLegTier4.set(Lines.ATTACKPER10, new Line(Lines.ATTACKPER10, 1, 1))
 emblemBpotLegTier4.set(Lines.PRIMEIGNOREDEFENSE, new Line(Lines.PRIMEIGNOREDEFENSE, 5, 1))
-emblemBpotLegTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 15))
+emblemBpotLegTier4.set(Lines.HP, new Line(Lines.HP, 10, 3))
+emblemBpotLegTier4.set(Lines.MP, new Line(Lines.MP, 10, 3))
+emblemBpotLegTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 9))
 
 emblemBpotLegTier3.set(Lines.PRIMARYSTATPERCENT, new Line(Lines.PRIMARYSTATPERCENT, 12, 3))
 emblemBpotLegTier3.set(Lines.SECONDARYSTATPERCENT, new Line(Lines.SECONDARYSTATPERCENT, 12, 3))
@@ -125,7 +126,9 @@ emblemBpotLegTier3.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER
 emblemBpotLegTier3.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 2, 2))
 emblemBpotLegTier3.set(Lines.ATTACKPER10, new Line(Lines.ATTACKPER10, 1, 1))
 emblemBpotLegTier3.set(Lines.PRIMEIGNOREDEFENSE, new Line(Lines.PRIMEIGNOREDEFENSE, 5, 1))
-emblemBpotLegTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 15))
+emblemBpotLegTier4.set(Lines.HP, new Line(Lines.HP, 10, 3))
+emblemBpotLegTier4.set(Lines.MP, new Line(Lines.MP, 10, 3))
+emblemBpotLegTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 9))
 
 emblemBpotUniTier4.set(Lines.PRIMARYSTATPERCENT, new Line(Lines.PRIMARYSTATPERCENT, 10, 3))
 emblemBpotUniTier4.set(Lines.SECONDARYSTATPERCENT, new Line(Lines.SECONDARYSTATPERCENT, 10, 3))
@@ -138,7 +141,9 @@ emblemBpotUniTier4.set(Lines.PRIMARYSTATPER10, new Line(Lines.PRIMARYSTATPER10, 
 emblemBpotUniTier4.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER10, 1, 2))
 emblemBpotUniTier4.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 1, 2))
 emblemBpotUniTier4.set(Lines.PRIMEIGNOREDEFENSE, new Line(Lines.PRIMEIGNOREDEFENSE, 4, 1))
-emblemBpotUniTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 19))
+emblemBpotUniTier4.set(Lines.HP, new Line(Lines.HP, 7, 3))
+emblemBpotUniTier4.set(Lines.MP, new Line(Lines.MP, 7, 3))
+emblemBpotUniTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 13))
 
 emblemBpotUniTier3.set(Lines.PRIMARYSTATPERCENT, new Line(Lines.PRIMARYSTATPERCENT, 9, 3))
 emblemBpotUniTier3.set(Lines.SECONDARYSTATPERCENT, new Line(Lines.SECONDARYSTATPERCENT, 9, 3))
@@ -151,7 +156,9 @@ emblemBpotUniTier3.set(Lines.PRIMARYSTATPER10, new Line(Lines.PRIMARYSTATPER10, 
 emblemBpotUniTier3.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER10, 1, 2))
 emblemBpotUniTier3.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 1, 2))
 emblemBpotUniTier3.set(Lines.PRIMEIGNOREDEFENSE, new Line(Lines.PRIMEIGNOREDEFENSE, 4, 1))
-emblemBpotUniTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 19))
+emblemBpotUniTier3.set(Lines.HP, new Line(Lines.HP, 7, 3))
+emblemBpotUniTier3.set(Lines.MP, new Line(Lines.MP, 7, 3))
+emblemBpotUniTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 13))
 
 let weaponMpotLegTier4 = copyMap(emblemMpotLegTier4)
 let weaponMpotLegTier3 = copyMap(emblemMpotLegTier3)
@@ -190,6 +197,8 @@ secondaryMpotLegTier4.set(Lines.IGNOREDAMAGE, new Line(Lines.IGNOREDAMAGE, 0, 6)
 secondaryMpotLegTier3.set(Lines.IGNOREDAMAGE, new Line(Lines.IGNOREDAMAGE, 0, 6))
 secondaryMpotUniTier4.set(Lines.IGNOREDAMAGE, new Line(Lines.IGNOREDAMAGE, 0, 8))
 secondaryMpotUniTier3.set(Lines.IGNOREDAMAGE, new Line(Lines.IGNOREDAMAGE, 0, 8))
+secondaryBpotLegTier4.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 1, 2))
+secondaryBpotLegTier3.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 1, 2))
 
 let armorMpotLegTier4 = new Map()
 let armorMpotLegTier3 = new Map()
@@ -239,7 +248,7 @@ armorMpotUniTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 13))
 armorBpotLegTier4.set(Lines.PRIMARYSTAT, new Line(Lines.PRIMARYSTAT, 19, 3))
 armorBpotLegTier4.set(Lines.SECONDARYSTAT, new Line(Lines.SECONDARYSTAT, 19, 3))
 armorBpotLegTier4.set(Lines.TERTIARYSTAT, new Line(Lines.TERTIARYSTAT, 19, 3))
-armorBpotLegTier4.set(Lines.ATTACK, new Line(Lines.ATTACK, 17, 2))
+armorBpotLegTier4.set(Lines.ATTACK, new Line(Lines.ATTACK, 15, 2))
 armorBpotLegTier4.set(Lines.PRIMARYSTATPERCENT, new Line(Lines.PRIMARYSTATPERCENT, 8, 2))
 armorBpotLegTier4.set(Lines.SECONDARYSTATPERCENT, new Line(Lines.SECONDARYSTATPERCENT, 8, 2))
 armorBpotLegTier4.set(Lines.TERTIARYSTATPERCENT, new Line(Lines.TERTIARYSTATPERCENT, 8, 2))
@@ -252,7 +261,7 @@ armorBpotLegTier4.set(Lines.HP, new Line(Lines.HP, 10, 3))
 armorBpotLegTier4.set(Lines.MP, new Line(Lines.MP, 10, 3))
 armorBpotLegTier4.set(Lines.MESOS, new Line(Lines.MESOS, 5, 3))
 armorBpotLegTier4.set(Lines.DROP, new Line(Lines.DROP, 5, 3))
-armorBpotLegTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 26))
+armorBpotLegTier4.set(Lines.FILLER, new Line(Lines.FILLER, 0, 25))
 
 armorBpotLegTier3.set(Lines.PRIMARYSTAT, new Line(Lines.PRIMARYSTAT, 18, 3))
 armorBpotLegTier3.set(Lines.SECONDARYSTAT, new Line(Lines.SECONDARYSTAT, 18, 3))
@@ -270,7 +279,7 @@ armorBpotLegTier3.set(Lines.HP, new Line(Lines.HP, 10, 3))
 armorBpotLegTier3.set(Lines.MP, new Line(Lines.MP, 10, 3))
 armorBpotLegTier3.set(Lines.MESOS, new Line(Lines.MESOS, 5, 3))
 armorBpotLegTier3.set(Lines.DROP, new Line(Lines.DROP, 5, 3))
-armorBpotLegTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 26))
+armorBpotLegTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 25))
 
 armorBpotUniTier4.set(Lines.PRIMARYSTAT, new Line(Lines.PRIMARYSTAT, 17, 3))
 armorBpotUniTier4.set(Lines.SECONDARYSTAT, new Line(Lines.SECONDARYSTAT, 17, 3))
@@ -315,20 +324,20 @@ let hatBpotUniTier3 = copyMap(armorBpotUniTier3)
 
 hatMpotLegTier4.set(Lines.NONPRIMECOOLDOWNREDUCTION, new Line(Lines.NONPRIMECOOLDOWNREDUCTION, 1, 3))
 hatMpotLegTier4.set(Lines.PRIMECOOLDOWNREDUCTION, new Line(Lines.PRIMECOOLDOWNREDUCTION, 2, 2))
-hatMpotLegTier4.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 5))
+hatMpotLegTier4.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 5))
 hatMpotLegTier4.get(Lines.FILLER).weight = 11
 hatMpotLegTier3.set(Lines.NONPRIMECOOLDOWNREDUCTION, new Line(Lines.NONPRIMECOOLDOWNREDUCTION, 1, 3))
 hatMpotLegTier3.set(Lines.PRIMECOOLDOWNREDUCTION, new Line(Lines.PRIMECOOLDOWNREDUCTION, 2, 2))
-hatMpotLegTier3.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 5))
+hatMpotLegTier3.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 5))
 hatMpotLegTier3.get(Lines.FILLER).weight = 11
-hatMpotUniTier4.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 6))
+hatMpotUniTier4.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 6))
 hatMpotUniTier4.get(Lines.FILLER).weight = 17
-hatMpotUniTier3.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 6))
+hatMpotUniTier3.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 6))
 hatMpotUniTier3.get(Lines.FILLER).weight = 17
 hatBpotLegTier4.set(Lines.PRIMECOOLDOWNREDUCTION, new Line(Lines.PRIMECOOLDOWNREDUCTION, 1, 3))
-hatBpotLegTier4.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 1))
+hatBpotLegTier4.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 1))
 hatBpotLegTier3.set(Lines.PRIMECOOLDOWNREDUCTION, new Line(Lines.PRIMECOOLDOWNREDUCTION, 1, 3))
-hatBpotLegTier3.set(Lines.ALLSKILLEVELS, new Line(Lines.ALLSKILLEVELS, 0, 1))
+hatBpotLegTier3.set(Lines.ALLSKILLLEVELS, new Line(Lines.ALLSKILLLEVELS, 0, 1))
 
 let topMpotLegTier4 = copyMap(armorMpotLegTier4)
 let topMpotLegTier3 = copyMap(armorMpotLegTier3)
@@ -341,16 +350,16 @@ let topBpotUniTier3 = copyMap(armorBpotUniTier3)
 
 topMpotLegTier4.set(Lines.INVINCIBILITY, new Line(Lines.INVINCIBILITY, 0, 3))
 topMpotLegTier4.set(Lines.PERCENTINVINCIBILITY, new Line(Lines.PERCENTINVINCIBILITY, 0, 3))
-topMpotLegTier4.get(Lines.FILLER).weight = 16
+topMpotLegTier4.get(Lines.FILLER).weight = 10
 topMpotLegTier3.set(Lines.INVINCIBILITY, new Line(Lines.INVINCIBILITY, 0, 3))
 topMpotLegTier3.set(Lines.PERCENTINVINCIBILITY, new Line(Lines.PERCENTINVINCIBILITY, 0, 3))
-topMpotLegTier3.get(Lines.FILLER).weight = 16
+topMpotLegTier3.get(Lines.FILLER).weight = 10
 topMpotUniTier4.set(Lines.INVINCIBILITY, new Line(Lines.INVINCIBILITY, 0, 4))
 topMpotUniTier4.set(Lines.PERCENTINVINCIBILITY, new Line(Lines.PERCENTINVINCIBILITY, 0, 4))
-topMpotUniTier4.get(Lines.FILLER).weight = 27
+topMpotUniTier4.get(Lines.FILLER).weight = 19
 topMpotUniTier3.set(Lines.INVINCIBILITY, new Line(Lines.INVINCIBILITY, 0, 4))
 topMpotUniTier3.set(Lines.PERCENTINVINCIBILITY, new Line(Lines.PERCENTINVINCIBILITY, 0, 4))
-topMpotUniTier3.get(Lines.FILLER).weight = 27
+topMpotUniTier3.get(Lines.FILLER).weight = 19
 
 let pantsMpotLegTier4 = copyMap(armorMpotLegTier4)
 let pantsMpotLegTier3 = copyMap(armorMpotLegTier3)
@@ -361,10 +370,10 @@ let pantsBpotLegTier3 = copyMap(armorBpotLegTier3)
 let pantsBpotUniTier4 = copyMap(armorBpotUniTier4)
 let pantsBpotUniTier3 = copyMap(armorBpotUniTier3)
 
-pantsMpotLegTier4.get(Lines.FILLER).weight = 16
-pantsMpotLegTier3.get(Lines.FILLER).weight = 16
-pantsMpotUniTier4.get(Lines.FILLER).weight = 25
-pantsMpotUniTier3.get(Lines.FILLER).weight = 25
+pantsMpotLegTier4.get(Lines.FILLER).weight = 10
+pantsMpotLegTier3.get(Lines.FILLER).weight = 10
+pantsMpotUniTier4.get(Lines.FILLER).weight = 17
+pantsMpotUniTier3.get(Lines.FILLER).weight = 17
 
 let shoesMpotLegTier4 = copyMap(armorMpotLegTier4)
 let shoesMpotLegTier3 = copyMap(armorMpotLegTier3)
@@ -375,10 +384,10 @@ let shoesBpotLegTier3 = copyMap(armorBpotLegTier3)
 let shoesBpotUniTier4 = copyMap(armorBpotUniTier4)
 let shoesBpotUniTier3 = copyMap(armorBpotUniTier3)
 
-shoesMpotLegTier4.get(Lines.FILLER).weight = 17
-shoesMpotLegTier3.get(Lines.FILLER).weight = 17
-shoesMpotUniTier4.get(Lines.FILLER).weight = 25
-shoesMpotUniTier3.get(Lines.FILLER).weight = 25
+shoesMpotLegTier4.get(Lines.FILLER).weight = 11
+shoesMpotLegTier3.get(Lines.FILLER).weight = 11
+shoesMpotUniTier4.get(Lines.FILLER).weight = 17
+shoesMpotUniTier3.get(Lines.FILLER).weight = 17
 
 let glovesMpotLegTier4 = copyMap(armorMpotLegTier4)
 let glovesMpotLegTier3 = copyMap(armorMpotLegTier3)
@@ -391,44 +400,44 @@ let glovesBpotUniTier3 = copyMap(armorBpotUniTier3)
 
 glovesMpotLegTier4.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 8, 4))
 glovesMpotLegTier4.set(Lines.SPEEDINFUSION, new Line(Lines.SPEEDINFUSION, 1, 3))
-glovesMpotLegTier4.get(Lines.FILLER).weight = 14
 glovesMpotLegTier3.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 8, 4))
-glovesMpotLegTier4.set(Lines.SPEEDINFUSION, new Line(Lines.SPEEDINFUSION, 1, 3))
-glovesMpotLegTier3.get(Lines.FILLER).weight = 14
+glovesMpotLegTier3.set(Lines.SPEEDINFUSION, new Line(Lines.SPEEDINFUSION, 1, 3))
 glovesMpotUniTier4.set(Lines.PRIMARYSTATPER10, new Line(Lines.PRIMARYSTATPER10, 1, 1))
 glovesMpotUniTier4.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER10, 1, 1))
 glovesMpotUniTier4.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 1, 1))
 glovesMpotUniTier4.set(Lines.SHARPEYES, new Line(Lines.SHARPEYES, 1, 4))
-glovesMpotUniTier4.get(Lines.FILLER).weight = 22
+glovesMpotUniTier4.get(Lines.FILLER).weight = 14
 glovesMpotUniTier3.set(Lines.PRIMARYSTATPER10, new Line(Lines.PRIMARYSTATPER10, 1, 1))
 glovesMpotUniTier3.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER10, 1, 1))
 glovesMpotUniTier3.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 1, 1))
 glovesMpotUniTier3.set(Lines.SHARPEYES, new Line(Lines.SHARPEYES, 1, 4))
-glovesMpotUniTier3.get(Lines.FILLER).weight = 22
+glovesMpotUniTier3.get(Lines.FILLER).weight = 14
 glovesBpotLegTier4.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 3, 2))
 glovesBpotLegTier3.set(Lines.CRITDMG, new Line(Lines.CRITDMG, 3, 2))
 
-let accessoriesMpotLegTier4 = copyMap(armorMpotLegTier4)
-let accessoriesMpotLegTier3 = copyMap(armorMpotLegTier3)
-let accessoriesMpotUniTier4 = copyMap(armorMpotUniTier4)
-let accessoriesMpotUniTier3 = copyMap(armorMpotUniTier3)
-let accessoriesBpotLegTier4 = copyMap(armorBpotLegTier4)
-let accessoriesBpotLegTier3 = copyMap(armorBpotLegTier3)
-let accessoriesBpotUniTier4 = copyMap(armorBpotUniTier4)
-let accessoriesBpotUniTier3 = copyMap(armorBpotUniTier3)
+let accessoryMpotLegTier4 = copyMap(armorMpotLegTier4)
+let accessoryMpotLegTier3 = copyMap(armorMpotLegTier3)
+let accessoryMpotUniTier4 = copyMap(armorMpotUniTier4)
+let accessoryMpotUniTier3 = copyMap(armorMpotUniTier3)
+let accessoryBpotLegTier4 = copyMap(armorBpotLegTier4)
+let accessoryBpotLegTier3 = copyMap(armorBpotLegTier3)
+let accessoryBpotUniTier4 = copyMap(armorBpotUniTier4)
+let accessoryBpotUniTier3 = copyMap(armorBpotUniTier3)
 
-accessoriesMpotLegTier4.delete(Lines.IGNOREDAMAGE)
-accessoriesMpotLegTier4.set(Lines.MESOS, new Line(Lines.MESOS, 20, 3))
-accessoriesMpotLegTier3.delete(Lines.IGNOREDAMAGE)
-accessoriesMpotLegTier3.set(Lines.MESOS, new Line(Lines.MESOS, 20, 3))
-accessoriesMpotUniTier4.delete(Lines.IGNOREDAMAGE)
-accessoriesMpotUniTier4.get(Lines.FILLER).weight = 13
-accessoriesMpotUniTier3.delete(Lines.IGNOREDAMAGE)
-accessoriesMpotUniTier3.get(Lines.FILLER).weight = 13
-accessoriesBpotLegTier4.get(Lines.FILLER).weight = 29
-accessoriesBpotLegTier4.delete(Lines.CRITDMG)
-accessoriesBpotLegTier3.get(Lines.FILLER).weight = 29
-accessoriesBpotLegTier3.delete(Lines.CRITDMG)
+accessoryMpotLegTier4.delete(Lines.IGNOREDAMAGE)
+accessoryMpotLegTier4.set(Lines.MESOS, new Line(Lines.MESOS, 20, 3))
+accessoryMpotLegTier4.set(Lines.DROP, new Line(Lines.DROP, 20, 3))
+accessoryMpotLegTier4.get(Lines.FILLER).weight = 14
+accessoryMpotLegTier3.delete(Lines.IGNOREDAMAGE)
+accessoryMpotLegTier3.set(Lines.MESOS, new Line(Lines.MESOS, 20, 3))
+accessoryMpotLegTier3.set(Lines.DROP, new Line(Lines.DROP, 20, 3))
+accessoryMpotLegTier3.get(Lines.FILLER).weight = 14
+accessoryMpotUniTier4.delete(Lines.IGNOREDAMAGE)
+accessoryMpotUniTier3.delete(Lines.IGNOREDAMAGE)
+accessoryBpotLegTier4.delete(Lines.CRITDMG)
+accessoryBpotLegTier4.get(Lines.FILLER).weight = 28
+accessoryBpotLegTier3.delete(Lines.CRITDMG)
+accessoryBpotLegTier3.get(Lines.FILLER).weight = 28
 
 let heartMpotLegTier4 = copyMap(armorMpotLegTier4)
 let heartMpotLegTier3 = copyMap(armorMpotLegTier3)
@@ -440,13 +449,9 @@ let heartBpotUniTier4 = copyMap(armorBpotUniTier4)
 let heartBpotUniTier3 = copyMap(armorBpotUniTier3)
 
 heartMpotLegTier4.delete(Lines.IGNOREDAMAGE)
-heartMpotLegTier4.get(Lines.FILLER).weight = 8
 heartMpotLegTier3.delete(Lines.IGNOREDAMAGE)
-heartMpotLegTier3.get(Lines.FILLER).weight = 8
 heartMpotUniTier4.delete(Lines.IGNOREDAMAGE)
-heartMpotUniTier4.get(Lines.FILLER).weight = 13
 heartMpotUniTier3.delete(Lines.IGNOREDAMAGE)
-heartMpotUniTier3.get(Lines.FILLER).weight = 13
 heartBpotLegTier4.delete(Lines.CRITDMG)
 heartBpotLegTier3.delete(Lines.CRITDMG)
 
@@ -549,15 +554,15 @@ const Armor = {
     bpotUniTier3: armorBpotUniTier3
 }
 
-const Accessories = {
-    mpotLegTier4: accessoriesMpotLegTier4,
-    mpotLegTier3: accessoriesMpotLegTier3,
-    mpotUniTier4: accessoriesMpotUniTier4,
-    mpotUniTier3: accessoriesMpotUniTier3,
-    bpotLegTier4: accessoriesBpotLegTier4,
-    bpotLegTier3: accessoriesBpotLegTier3,
-    bpotUniTier4: accessoriesBpotUniTier4,
-    bpotUniTier3: accessoriesBpotUniTier3
+const Accessory = {
+    mpotLegTier4: accessoryMpotLegTier4,
+    mpotLegTier3: accessoryMpotLegTier3,
+    mpotUniTier4: accessoryMpotUniTier4,
+    mpotUniTier3: accessoryMpotUniTier3,
+    bpotLegTier4: accessoryBpotLegTier4,
+    bpotLegTier3: accessoryBpotLegTier3,
+    bpotUniTier4: accessoryBpotUniTier4,
+    bpotUniTier3: accessoryBpotUniTier3
 }
 
 const Heart = {
@@ -590,7 +595,7 @@ const EquipType = {
     belt: "belt",
     shoulder: "shoulder",
     badge: "badge",
-    accessories: "accessories",
+    accessory: "accessory",
     heart: "heart"
 }
 
@@ -632,7 +637,7 @@ const CubeData = {
     shoes: Shoes,
     gloves: Gloves,
     armor: Armor,
-    accessories: Accessories,
+    accessory: Accessory,
     heart: Heart
 }
 

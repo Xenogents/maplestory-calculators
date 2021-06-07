@@ -3,18 +3,18 @@ import { Weapon } from './Weapon.js';
 
 function getLocalStorage(label) {
     if (document.getElementById(label).type == "checkbox") {
-        if (localStorage.getItem(label)) {
+        if (localStorage.getItem(label) && localStorage.getItem(label) !== "\"\"") {
             document.getElementById(label).checked = JSON.parse(localStorage.getItem(label));
             return JSON.parse(localStorage.getItem(label));
         } else {
             return false;
         }
     } else if (document.getElementById(label).type == "number") {
-        if (localStorage.getItem(label)) {
+        if (localStorage.getItem(label) && localStorage.getItem(label) !== "\"\"") {
             document.getElementById(label).value = JSON.parse(localStorage.getItem(label));
             return JSON.parse(localStorage.getItem(label)); 
         } else {
-            return 1;
+            return 0;
         }
     }
 }
@@ -61,7 +61,7 @@ function updateAttackPower() {attackPower = document.getElementById("attackPower
 
 let minTier = 0;
 let maxTier = 0;
-document.getElementById("calculate").addEventListener("click", calculate);
+document.getElementById("calculateFlames").addEventListener("click", calculate);
 
 function calculate() {
     updateFlameValues();
@@ -99,7 +99,7 @@ function calculate() {
     let expectedFlameScoreGain = (expectedGain / probabilityToBeat).toFixed(2) + " expected flame score increase after beating current"
     document.getElementById("expectedFlamesToEqual").innerHTML = expectedFlamesToEqual;
     document.getElementById("expectedFlamesToBeat").innerHTML = expectedFlamesToBeat;
-    document.getElementById("expectedGain").innerHTML = expectedFlameScoreGain;
+    document.getElementById("expectedFlameGain").innerHTML = expectedFlameScoreGain;
 }
 
 function calculate4Lines() {
