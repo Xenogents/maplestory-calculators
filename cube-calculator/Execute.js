@@ -115,20 +115,20 @@ function calculate() {
     let expectedCubesToEqual = (1 / firstResult[0]).toFixed(2) + " " + firstCubeType + " cubes to equal or beat current"
     let expectedCubesToBeat = (1 / firstResult[1]).toFixed(2) + " " + firstCubeType + " cubes to beat current"
     let expectedCubeScoreGain = (firstResult[2] / firstResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
-    document.getElementById("expectedFirstCubesToEqual").innerHTML = expectedCubesToEqual;
-    document.getElementById("expectedFirstCubesToBeat").innerHTML = expectedCubesToBeat;
-    document.getElementById("expectedFirstCubeGain").innerHTML = expectedCubeScoreGain;
-    document.getElementById("expectedSecondCubesToEqual").innerHTML = "";
-    document.getElementById("expectedSecondCubesToBeat").innerHTML = "";
-    document.getElementById("expectedSecondCubeGain").innerHTML = "";
+    document.getElementById("expectedFirstCubesToEqual").innerText = expectedCubesToEqual;
+    document.getElementById("expectedFirstCubesToBeat").innerText = expectedCubesToBeat;
+    document.getElementById("expectedFirstCubeGain").innerText = expectedCubeScoreGain;
+    document.getElementById("expectedSecondCubesToEqual").innerText = "";
+    document.getElementById("expectedSecondCubesToBeat").innerText = "";
+    document.getElementById("expectedSecondCubeGain").innerText = "";
 
     if (!isBpot) {
         expectedCubesToEqual = (1 / secondResult[0]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to equal or beat current"
         expectedCubesToBeat = (1 / secondResult[1]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to beat current"
         expectedCubeScoreGain = (secondResult[2] / firstResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
-        document.getElementById("expectedSecondCubesToEqual").innerHTML = expectedCubesToEqual;
-        document.getElementById("expectedSecondCubesToBeat").innerHTML = expectedCubesToBeat;
-        document.getElementById("expectedSecondCubeGain").innerHTML = expectedCubeScoreGain;
+        document.getElementById("expectedSecondCubesToEqual").innerText = expectedCubesToEqual;
+        document.getElementById("expectedSecondCubesToBeat").innerText = expectedCubesToBeat;
+        document.getElementById("expectedSecondCubeGain").innerText = expectedCubeScoreGain;
     }
 }
 
