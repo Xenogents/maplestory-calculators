@@ -47,7 +47,7 @@ let percentSecondaryRatio = getLocalStorage("percentSecondaryRatio");   document
 let percentTertiaryRatio = getLocalStorage("percentTertiaryRatio");     document.getElementById("percentTertiaryRatio").addEventListener('input', updatePercentTertiaryRatio);
 let hpRatio = getLocalStorage("hpRatio");                               document.getElementById("hpRatio").addEventListener('input', updateHpRatio);
 let mpRatio = getLocalStorage("mpRatio");                               document.getElementById("mpRatio").addEventListener('input', updateMpRatio);
-let equipType = getLocalStorage("equipType");                           document.getElementById("equipType").addEventListener('click', updateEquipType);
+let equipType = getLocalStorage("equipType");                           document.getElementById("equipType").addEventListener('change', updateEquipType);
 let equipData
 
 function updateIsBpot() {isBpot = document.getElementById("isBpot").checked;                                                localStorage.setItem("isBpot", JSON.stringify(isBpot))}
@@ -125,7 +125,7 @@ function calculate() {
     if (!isBpot) {
         expectedCubesToEqual = (1 / secondResult[0]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to equal or beat current"
         expectedCubesToBeat = (1 / secondResult[1]).toFixed(2) + " " + CubeData.cubeType.BLACK + " cubes to beat current"
-        expectedCubeScoreGain = (secondResult[2] / firstResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
+        expectedCubeScoreGain = (secondResult[2] / secondResult[1]).toFixed(2) + " expected " + scoreType +  " increase after beating current"
         document.getElementById("expectedSecondCubesToEqual").innerText = expectedCubesToEqual;
         document.getElementById("expectedSecondCubesToBeat").innerText = expectedCubesToBeat;
         document.getElementById("expectedSecondCubeGain").innerText = expectedCubeScoreGain;
@@ -244,8 +244,8 @@ function calculateScore(equip) {
         potentialScore += statRatio === 0 ? 0 : equip.tertiaryStatPer10 * Math.floor(characterLevel / 10) * tertiaryRatio / statRatio
         potentialScore += equip.sharpEyes ? sharpEyesRatio : 0
         potentialScore += equip.speedInfusion ? speedInfusionRatio : 0
-        potentialScore += hpRatio === 0 ? 0 : equip.hp / hpRatio
-        potentialScore += mpRatio === 0 ? 0 : equip.mp / mpRatio
+        potentialScore += hpRatio === 0 ? 0 : equip.hp * hpRatio
+        potentialScore += mpRatio === 0 ? 0 : equip.mp * mpRatio
     }
     return potentialScore
 }
