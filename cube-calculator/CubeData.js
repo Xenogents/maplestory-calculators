@@ -126,8 +126,8 @@ emblemBpotLegTier3.set(Lines.SECONDARYSTATPER10, new Line(Lines.SECONDARYSTATPER
 emblemBpotLegTier3.set(Lines.TERTIARYSTATPER10, new Line(Lines.TERTIARYSTATPER10, 2, 2))
 emblemBpotLegTier3.set(Lines.ATTACKPER10, new Line(Lines.ATTACKPER10, 1, 1))
 emblemBpotLegTier3.set(Lines.PRIMEIGNOREDEFENSE, new Line(Lines.PRIMEIGNOREDEFENSE, 5, 1))
-emblemBpotLegTier4.set(Lines.HP, new Line(Lines.HP, 10, 3))
-emblemBpotLegTier4.set(Lines.MP, new Line(Lines.MP, 10, 3))
+emblemBpotLegTier3.set(Lines.HP, new Line(Lines.HP, 10, 3))
+emblemBpotLegTier3.set(Lines.MP, new Line(Lines.MP, 10, 3))
 emblemBpotLegTier3.set(Lines.FILLER, new Line(Lines.FILLER, 0, 9))
 
 emblemBpotUniTier4.set(Lines.PRIMARYSTATPERCENT, new Line(Lines.PRIMARYSTATPERCENT, 10, 3))

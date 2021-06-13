@@ -1,5 +1,5 @@
 html {
-    font-size: 100%;
+    font-size: calc(0.55em + 1vmin);
 }
 
 body {
@@ -9,6 +9,10 @@ body {
 
 #flames {
     margin-right: 50px;
+}
+
+#expectedEternalFlameGain {
+    margin-bottom: 5px;
 }
 
 #expectedFirstCubeGain {

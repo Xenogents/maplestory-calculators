@@ -4,25 +4,28 @@
     <script src="<%= htmlWebpackPlugin.files.js[i] %>" async></script>
   <% } %>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body id="body">
   <div id="flames">
     <h1 id="flameTitle">Flame Calculator</h1>
-    <div><input type="checkbox" id="isEternal"></input><label for="isEternal">Eternals</label></div>
     <div><input type="checkbox" id="isWeapon"></input><label for="isWeapon">Weapon</label></div>
     <div><input type="checkbox" id="isFlameAdvantaged"></input><label for="isFlameAdvantaged">Flame advantaged</label></div>
-    <div><input type="checkbox" id="isXenon"></input><label for="isXenon">Xenon</label></div>
     <div><input type="number" id="level"></input><label for="level">Item level</label></div>
     <div><input type="number" id="flameThreshold"></input><label for="flameThreshold">Flame threshold</label></div>
-    <div><input type="number" id="attackWeight"></input><label for="attackWeight">Attack Weight</label></div>
-    <div><input type="number" id="allStatWeight"></input><label for="allStatWeight">All stat Weight</label></div>
-    <div><input type="number" id="secondaryWeight"></input><label for="secondaryWeight">Secondary Stat Weight</label></div>
-    <div><input type="number" id="bossWeight"></input><label for="bossWeight">Boss Weight</label></div>
+    <div><input type="number" id="attackWeight"></input><label for="attackWeight">Stat = 1 Att</label></div>
+    <div><input type="number" id="allStatWeight"></input><label for="allStatWeight">Stat = 1% All Stat</label></div>
+    <div><input type="number" id="secondaryWeight"></input><label for="secondaryWeight">Stat = 1 2ndary Stat</label></div>
+    <div><input type="number" id="tertiaryWeight"></input><label for="tertiaryWeight">Stat = 1 3rdary Stat</label></div>
+    <div><input type="number" id="bossWeight"></input><label for="bossWeight">Stat = 1% Boss</label></div>
     <div><input type="number" id="attackPower"></input><label for="attackPower">Base weapon attack</label></div>
     <button id="calculateFlames">Calculate</button><label for="calculateFlames"></label>
-    <div id="expectedFlamesToEqual"><span id="expectedFlamesToEqual"></span></div>
-    <div id="expectedFlamesToBeat"><span id="expectedFlamesToBeat"></span></div>
-    <div id="expectedFlameGain"><span id="expectedFlameGain"></span></div>
+    <div id="expectedEternalFlamesToEqual"></div>
+    <div id="expectedEternalFlamesToBeat"></div>
+    <div id="expectedEternalFlameGain"></div>
+    <div id="expectedRedFlamesToEqual"></div>
+    <div id="expectedRedFlamesToBeat"></div>
+    <div id="expectedRedFlameGain"></div>
   </div>
   <div id="cubes">
     <h1 id="cubeTitle">Cube Calculator</h1>
@@ -69,12 +72,12 @@
     <div><input type="number" id="hpRatio"></input><label for="hpRatio">%Stat = 1% HP</label></div>
     <div><input type="number" id="mpRatio"></input><label for="mpRatio">%Stat = 1% MP</label></div>
     <button id="calculateCubes">Calculate</button><label for="calculateCubes"></label>
-    <div id="expectedFirstCubesToEqual"><span id="expectedFirstCubesToEqual"></span></div>
-    <div id="expectedFirstCubesToBeat"><span id="expectedFirstCubesToBeat"></span></div>
-    <div id="expectedFirstCubeGain"><span id="expectedFirstCubeGain"></span></div>
-    <div id="expectedSecondCubesToEqual"><span id="expectedSecondCubesToEqual"></span></div>
-    <div id="expectedSecondCubesToBeat"><span id="expectedSecondCubesToBeat"></span></div>
-    <div id="expectedSecondCubeGain"><span id="expectedSecondCubeGain"></span></div>
+    <div id="expectedFirstCubesToEqual"></div>
+    <div id="expectedFirstCubesToBeat"></div>
+    <div id="expectedFirstCubeGain"></div>
+    <div id="expectedSecondCubesToEqual"></div>
+    <div id="expectedSecondCubesToBeat"></div>
+    <div id="expectedSecondCubeGain"></div>
   </div>
 </body>
 </html>
