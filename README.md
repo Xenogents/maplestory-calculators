@@ -1,5 +1,9 @@
 # Instructions/Notes
 
+Main reason I made this is because I needed a viable bpot calculator but most calculators come from reboot so I'm pretty sure it doesn't exist. I also needed a viable flame calculator for weapons which took into account %all stat and base stat.
+
+There was also 2 different metrics that I wanted to use which I found useful for something which I personally wanted to do which is differentiating between equaling a certain flame threshold and beating it along with expected gain after beating it. The intent is that you put in your current gear stats to find out what kind of gains you'd get out of trying to beat it instead of a preset goal which you're trying to hit. Using this I could make cost comparisons between different kinds of upgrades.
+
 ## Usage
 
 Putting in all your stat ratios is probably self-explanatory but in the likely case that you don't want to fill in every section, here are some important sections to know about
