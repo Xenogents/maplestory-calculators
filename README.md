@@ -22,9 +22,9 @@ All this can be deduced from the calculator but there's some really helpful thin
 
 * For both main and bonus potential, %Att lines are hardest to roll on Secondary, 2nd hardest to roll on Weapon, and easiest to roll on Emblem. Weapon is harder than Emblem just out of virtue of having boss lines but Secondary actually has more garbage lines than the other 2.
 
-* The difficulty of rolling %stat lines on mpot goes in this order from easiest to hardest. Heart/Badge > Shoulder/Belt/Cape > Pants > Shoes > Top > Hat. Accessories range from just above Shoulder/Belt/Cape if you go for lower rolls to just below shoes if you go for higher rolls. Glove is redundant because people don't aim for %Stat and Hat is redundant if you need CDR lines.
+* The difficulty of rolling %stat lines on mpot goes in this order from easiest to hardest. Heart > Shoulder/Belt/Cape > Pants > Shoes > Top > Hat. Accessories range from just above Shoulder/Belt/Cape if you go for lower rolls to just below shoes if you go for higher rolls. Glove is redundant because people don't aim for %Stat and Hat is redundant if you need CDR lines. Badge isn't in kms so I don't know any rates.
 
-* Heart and Badge are by far the easiest to cube mpot on with rolling 30%+ stat being more than 1.5x harder on any other gear.
+* Heart is by far the easiest to cube mpot on with rolling 30%+ stat being more than 1.5x harder on any other gear.
 
 * Top and Hat are by far the hardest to cube mpot on with rolling 30%+ stat being more than 1.5x harder compared to any other gear.
 

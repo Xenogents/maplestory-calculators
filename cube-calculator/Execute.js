@@ -85,7 +85,6 @@ function updateEquipData() {
     else if (equipType === CubeData.equipType.cape) {equipData = CubeData.armor}
     else if (equipType === CubeData.equipType.belt) {equipData = CubeData.armor}
     else if (equipType === CubeData.equipType.heart) {equipData = CubeData.heart}
-    else if (equipType === CubeData.equipType.badge) {equipData = CubeData.heart}
 }
 
 document.getElementById("calculateCubes").addEventListener("click", calculate);
@@ -178,6 +177,11 @@ function calculateProbability(cubeType) {
                 thirdLinePrimeRate = CubeData.primeRates.bpotCube.thirdLine
                 if (!secondPrime) { secondLinePrimeRate = 1 - CubeData.primeRates.bpotCube.secondLine }
                 if (!thirdPrime) { thirdLinePrimeRate = 1 - CubeData.primeRates.bpotCube.thirdLine }
+            } else if (cubeType === CubeData.cubeType.EQUALITY) {
+                secondLinePrimeRate = CubeData.primeRates.equalityCube.secondLine
+                thirdLinePrimeRate = CubeData.primeRates.equalityCube.thirdLine
+                if (!secondPrime) { secondLinePrimeRate = 1 - CubeData.primeRates.equalityCube.secondLine }
+                if (!thirdPrime) { thirdLinePrimeRate = 1 - CubeData.primeRates.equalityCube.thirdLine }
             }
     
             let firstLineWeight = 0
