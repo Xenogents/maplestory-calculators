@@ -225,7 +225,7 @@ function calculateScore(equip) {
         potentialScore += equip.attackPercent
         potentialScore += bossRatio === 0 ? 0 : (equip.bossDamage + equip.damage) / bossRatio
         potentialScore += iedRatio === 0 ? 0 : equip.ignoreDefense / iedRatio
-        potentialScore += percentStatRatio === 0 ? 0 : equip.critRate * critRateRatio / percentStatRatio
+        potentialScore += percentStatRatio === 0 ? 0 : equip.critRate / critRateRatio
         potentialScore += statRatio * percentStatRatio === 0 ? 
                         0 : equip.attackPer10 * Math.floor(characterLevel / 10) * attRatio / (statRatio * percentStatRatio)
         potentialScore += percentStatRatio === 0 ? 0 : equip.allStat * (1 + percentSecondaryRatio + percentTertiaryRatio) / percentStatRatio
