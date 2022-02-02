@@ -34,8 +34,6 @@ All this can be deduced from the calculator but there's some really helpful thin
 
 Cube data was released for KMS but wasn't entirely sure the prime rates would be the same as GMS. Looked at a bunch of videos and black/red cubes seem to be the same but bpot cubes seem to sit at around 5% instead of 0.4975% which is what I use here.
 
-KMS doesn't have badges so I'm making the assumption that the line pool for badges is equal to the line pool for hearts.
-
 Number of lines for non-flame advantaged items I just used Suckhard's probabilities which is 1 line: 45%, 2 lines: 35%, 3 lines 15%, 4 lines 5%.
 
 Familiar calculator was also in the makes but the available data [here](https://docs.google.com/spreadsheets/d/1hcVLi2Qb5ljiua9lt25hc0Yatf0kJWFDvfctqmbbOKI/edit#gid=1355272261) seemed to have a lot of discrepencies with perceived lines and rates and frankly I don't trust it, so I'll just leave it hanging until some official data comes out or something.
